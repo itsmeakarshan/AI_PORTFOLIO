@@ -521,13 +521,28 @@ if (projectGrid) {
 
       const data = await response.json().catch(() => ({}));
 
-      // Unified check for "ai key expired"
+      // Unified check for missing/expired/quota/unauthorized API key
       const isKeyExpired =
         response.status === 401 ||
+        response.status === 403 ||
         response.status === 429 ||
         data.error === ERROR_KEY_EXPIRED ||
-        (typeof data.error === "string" && data.error.toLowerCase().includes(ERROR_KEY_EXPIRED)) ||
-        (typeof data.message === "string" && data.message.toLowerCase().includes(ERROR_KEY_EXPIRED));
+        (typeof data.error === "string" && (
+          data.error.toLowerCase().includes("key") ||
+          data.error.toLowerCase().includes("expired") ||
+          data.error.toLowerCase().includes("quota")
+        )) ||
+        (typeof data.message === "string" && (
+          data.message.toLowerCase().includes("key") ||
+          data.message.toLowerCase().includes("expired") ||
+          data.message.toLowerCase().includes("quota") ||
+          data.message.toLowerCase().includes("unauthenticated")
+        )) ||
+        (typeof data.details === "string" && (
+          data.details.toLowerCase().includes("key") ||
+          data.details.toLowerCase().includes("quota") ||
+          data.details.toLowerCase().includes("expired")
+        ));
 
       if (isKeyExpired) {
         lastFailedMessage = userText;
