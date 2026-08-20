@@ -138,8 +138,25 @@ if (projectGrid) {
   video.addEventListener("canplay", updateDuration);
   video.addEventListener("durationchange", updateDuration);
 
-  // Pause video so manual scroll scrubbing controls currentTime cleanly
+  // Ensure video is paused on mobile touch load so scroll scrubbing drives frames
   video.pause();
+
+  // Mobile Safari / Chrome video touch unlock
+  function unlockMobileVideo() {
+    if (video.paused) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          video.pause();
+        }).catch(() => {});
+      }
+    }
+    window.removeEventListener("touchstart", unlockMobileVideo);
+    window.removeEventListener("touchend", unlockMobileVideo);
+  }
+
+  window.addEventListener("touchstart", unlockMobileVideo, { passive: true, once: true });
+  window.addEventListener("touchend", unlockMobileVideo, { passive: true, once: true });
 
   function applyVideoSeek() {
     if (prefersReducedMotion || duration <= 0) return;
