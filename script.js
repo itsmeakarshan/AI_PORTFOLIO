@@ -37,6 +37,22 @@ const projects = [
     yt: "7OG-jnmAXz4",
     live: "https://emotion-detection-ml-owsc.onrender.com",
     description: "An instant text-analysis tool that reads any message, customer review, or feedback and accurately identifies the underlying human emotion (such as joy, sadness, anger, or fear) in real time."
+  },
+  {
+    title: "AI Question Paper Generator & Evaluator",
+    description: "An AI-powered assessment tool that automatically generates customizable exam question papers from curriculum topics and evaluates student responses with detailed feedback and scoring."
+  },
+  {
+    title: "Learner Management Platform (C# & SQL Server)",
+    description: "An enterprise learner management and course tracking system built with C# and SQL Server, managing student enrollments, attendance, performance analytics, and grade reports."
+  },
+  {
+    title: "Customer Lifetime Value (CLV) & Churn Predictor",
+    description: "A predictive analytics application using Python, Scikit-Learn, and Streamlit that analyzes customer purchase patterns to forecast future lifetime value and identify retention strategies."
+  },
+  {
+    title: "House Price Prediction & Real Estate Market Analytics",
+    description: "A machine-learning regression dashboard analyzing urban property features, location factors, and market trends to estimate accurate property valuations."
   }
 ];
 
@@ -48,55 +64,65 @@ if (projectGrid) {
     const card = document.createElement("article");
     card.className = "project-card";
     const padIndex = String(index + 1).padStart(2, "0");
-    const thumbUrl = `https://img.youtube.com/vi/${project.yt}/maxresdefault.jpg`;
-    const fallbackThumb = `https://img.youtube.com/vi/${project.yt}/hqdefault.jpg`;
 
-    card.innerHTML = `
-      <div class="project-media" tabindex="0" role="region" aria-label="${project.title} video preview">
-        <img src="${thumbUrl}" alt="Thumbnail preview for ${project.title}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackThumb}'">
-        <button class="play-overlay" type="button" aria-label="Play video demonstration for ${project.title}">
-          <span class="play-button"><span class="play-icon" aria-hidden="true"></span> Play video</span>
-        </button>
-      </div>
-      <div class="project-info">
-        <span class="project-index">0${index + 1} / PROJECT</span>
-        <h3 class="project-title">${project.title}</h3>
-        <p class="project-desc">${project.description}</p>
-        <div class="project-links">
-          <a href="${project.live}" target="_blank" rel="noopener">Live Site ↗</a>
-          <a href="https://youtu.be/${project.yt}" target="_blank" rel="noopener">YouTube ↗</a>
+    if (project.yt) {
+      const thumbUrl = `https://img.youtube.com/vi/${project.yt}/maxresdefault.jpg`;
+      const fallbackThumb = `https://img.youtube.com/vi/${project.yt}/hqdefault.jpg`;
+
+      card.innerHTML = `
+        <div class="project-media" tabindex="0" role="region" aria-label="${project.title} video preview">
+          <img src="${thumbUrl}" alt="Thumbnail preview for ${project.title}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackThumb}'">
+          <button class="play-overlay" type="button" aria-label="Play video demonstration for ${project.title}">
+            <span class="play-button"><span class="play-icon" aria-hidden="true"></span> Play video</span>
+          </button>
         </div>
-      </div>
-    `;
+        <div class="project-info">
+          <span class="project-index">${padIndex} / PROJECT</span>
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-desc">${project.description}</p>
+          <div class="project-links">
+            <a href="${project.live}" target="_blank" rel="noopener">Live Site ↗</a>
+            <a href="https://youtu.be/${project.yt}" target="_blank" rel="noopener">YouTube ↗</a>
+          </div>
+        </div>
+      `;
 
-    const mediaContainer = card.querySelector(".project-media");
-    const playButton = card.querySelector(".play-overlay");
+      const mediaContainer = card.querySelector(".project-media");
+      const playButton = card.querySelector(".play-overlay");
 
-    // Load iframe only on user action (preserves privacy, reduces initial page load to near zero)
-    const activatePlayer = () => {
-      if (mediaContainer.querySelector("iframe")) return;
-      const iframe = document.createElement("iframe");
-      iframe.src = `https://www.youtube-nocookie.com/embed/${project.yt}?autoplay=1&rel=0&modestbranding=1`;
-      iframe.title = `${project.title} — YouTube Video Demo`;
-      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-      iframe.allowFullscreen = true;
-      iframe.loading = "eager";
-      mediaContainer.innerHTML = "";
-      mediaContainer.appendChild(iframe);
-      iframe.focus();
-    };
+      const activatePlayer = () => {
+        if (mediaContainer.querySelector("iframe")) return;
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube-nocookie.com/embed/${project.yt}?autoplay=1&rel=0&modestbranding=1`;
+        iframe.title = `${project.title} — YouTube Video Demo`;
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        iframe.loading = "eager";
+        mediaContainer.innerHTML = "";
+        mediaContainer.appendChild(iframe);
+        iframe.focus();
+      };
 
-    playButton.addEventListener("click", (e) => {
-      e.stopPropagation();
-      activatePlayer();
-    });
-
-    mediaContainer.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
+      playButton.addEventListener("click", (e) => {
+        e.stopPropagation();
         activatePlayer();
-      }
-    });
+      });
+
+      mediaContainer.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          activatePlayer();
+        }
+      });
+    } else {
+      card.innerHTML = `
+        <div class="project-info project-info-full">
+          <span class="project-index">${padIndex} / PROJECT</span>
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-desc">${project.description}</p>
+        </div>
+      `;
+    }
 
     projectGrid.appendChild(card);
   });

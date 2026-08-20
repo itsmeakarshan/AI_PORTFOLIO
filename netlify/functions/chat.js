@@ -58,6 +58,18 @@ PROJECTS:
 5. NLP Emotion Detection:
    - An instant text-analysis tool that reads any message, customer review, or feedback and accurately identifies the underlying human emotion (such as joy, sadness, anger, or fear) in real time.
 
+6. AI Question Paper Generator & Evaluator:
+   - An AI-powered assessment tool that automatically generates customizable exam question papers from curriculum topics and evaluates student responses with detailed feedback and scoring.
+
+7. Learner Management Platform (C# & SQL Server):
+   - An enterprise learner management and course tracking system built with C# and SQL Server, managing student enrollments, attendance, performance analytics, and grade reports.
+
+8. Customer Lifetime Value (CLV) & Churn Predictor:
+   - A predictive analytics application using Python, Scikit-Learn, and Streamlit that analyzes customer purchase patterns to forecast future lifetime value and identify retention strategies.
+
+9. House Price Prediction & Real Estate Market Analytics:
+   - A machine-learning regression dashboard analyzing urban property features, location factors, and market trends to estimate accurate property valuations.
+
 EDUCATION:
 - MSc Data Science — Northumbria University, Newcastle upon Tyne, UK (Jan 2025 – Jun 2026), Grade: 64%
 - Computer Science Engineering — DBATU, Maharashtra, India (Jan 2020 – Jul 2024), CGPA: 6.90
