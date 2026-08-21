@@ -11,13 +11,13 @@ const projects = [
   {
     title: "Video Intelligence Platform with Prediction & Recommendation",
     yt: "Do-LcKG6l8c",
-    live: "http://35.178.182.38",
+    live: "https://video.akarshan.co.uk",
     description: "AI video intelligence platform with AI chatbot where users can upload videos from local storage or YouTube links and ask questions about the video content. Features exact clickable timestamps that jump directly to requested video sections, downloadable AI notes & summaries, AI-generated quizzes with next-score prediction, and targeted YouTube recommendations for weak topics."
   },
   {
     title: "AI Chatbot Integrated Retail Intelligence & Prediction Platform",
     yt: "R5F8nOMUvm8",
-    live: "http://35.178.182.38:8080/",
+    live: "https://retail.akarshan.co.uk",
     description: "Retail intelligence platform giving retailers full control over customers and products. Features SKU demand forecasting to order stocks and automate reorder emails, customer churn prediction to target at-risk spenders with personalized email offers, and automated expiry tracking with smart stock optimization suggestions built across 797K+ transactions."
   },
   {
