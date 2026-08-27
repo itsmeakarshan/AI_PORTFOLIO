@@ -43,18 +43,18 @@ PROJECTS:
    - Generates AI quizzes; includes Extra Trees model predicting next quiz scores (R²: 0.861, MAE: 3.13% on unseen users).
    - Delivers targeted YouTube video recommendations based on weak quiz topics.
 
-2. AI Chatbot Integrated Retail Intelligence & Prediction Platform:
+2. AI Voice Detector — Deepfake Speech & Audio Forensics Platform (VoiceGuard AI):
+   - An audio forensics and anti-spoofing platform that detects whether a speech recording is an authentic human voice or an AI-synthesized deepfake clone.
+   - Converts 16 kHz mono audio into 80-band Log-Mel spectrograms for high-resolution 2D CNN acoustic feature extraction.
+   - Evaluated on 10,000 ASVspoof 2021 speech samples with strict speaker-disjoint partitioning (0.00% overlap): 76.40% Test Accuracy, 85.67% ROC-AUC, 22.87% EER, and sub-100ms real-time inference latency.
+   - Full enterprise architecture: Java 21 Spring Boot 3 Gateway with JWT security, Python FastAPI / PyTorch ML microservice, Next.js 16 UI with live mic recording, and automated forensic PDF report generation.
+
+3. AI Chatbot Integrated Retail Intelligence & Prediction Platform:
    - Retail intelligence & prediction platform giving retailers complete control over customers and product inventory (built across 797K+ retail transactions, 5,939 customers, and 4,646 products).
    - High-Demand SKU Forecasting & Auto-Ordering: Predicts high-demand products (sMAPE: 31.84%) and automates stock reorder emails to suppliers.
    - Customer Churn & Email Offers: Predicts at-risk customers stopping spending (ROC-AUC: 0.831) and triggers personalized offer emails.
    - Expiry Tracking & Suggestions: Checks expiring stock and generates smart inventory optimization suggestions.
    - Production MLOps: Includes PSI/KS drift monitoring and full deployment on AWS using Docker.
-
-3. AI Voice Detector — Deepfake Speech & Audio Forensics Platform (VoiceGuard AI):
-   - An audio forensics and anti-spoofing platform that detects whether a speech recording is an authentic human voice or an AI-synthesized deepfake clone.
-   - Converts 16 kHz mono audio into 80-band Log-Mel spectrograms for high-resolution 2D CNN acoustic feature extraction.
-   - Evaluated on 10,000 ASVspoof 2021 speech samples with strict speaker-disjoint partitioning (0.00% overlap): 76.40% Test Accuracy, 85.67% ROC-AUC, 22.87% EER, and sub-100ms real-time inference latency.
-   - Full enterprise architecture: Java 21 Spring Boot 3 Gateway with JWT security, Python FastAPI / PyTorch ML microservice, Next.js 16 UI with live mic recording, and automated forensic PDF report generation.
 
 4. Autonomous Data Science Platform — AI Chatbot Integrated:
    - An AI-powered platform where users can upload any raw dataset to automatically clean data, detect data quality problems, select the best machine-learning model, and explain the exact reasons behind predictions without writing code.

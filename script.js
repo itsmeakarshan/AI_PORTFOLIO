@@ -15,16 +15,16 @@ const projects = [
     description: "AI video intelligence platform with AI chatbot where users can upload videos from local storage or YouTube links and ask questions about the video content. Features exact clickable timestamps that jump directly to requested video sections, downloadable AI notes & summaries, AI-generated quizzes with next-score prediction, and targeted YouTube recommendations for weak topics."
   },
   {
-    title: "AI Chatbot Integrated Retail Intelligence & Prediction Platform",
-    yt: "R5F8nOMUvm8",
-    live: "https://retail.akarshan.co.uk",
-    description: "Retail intelligence platform giving retailers full control over customers and products. Features SKU demand forecasting to order stocks and automate reorder emails, customer churn prediction to target at-risk spenders with personalized email offers, and automated expiry tracking with smart stock optimization suggestions built across 797K+ transactions."
-  },
-  {
     title: "AI Voice Detector — Deepfake Speech & Audio Forensics Platform",
     yt: "nPmcr5GBy84",
     live: "https://github.com/itsmeakarshan/AI-VOICE-DETECTOR",
     description: "An audio security and forensics platform that instantly detects whether a voice recording is a real human or an AI-generated deepfake clone. Users can upload audio files or record voice live to get accurate authenticity scores, acoustic spectrogram visualizations, and downloadable forensic audit reports."
+  },
+  {
+    title: "AI Chatbot Integrated Retail Intelligence & Prediction Platform",
+    yt: "R5F8nOMUvm8",
+    live: "https://retail.akarshan.co.uk",
+    description: "Retail intelligence platform giving retailers full control over customers and products. Features SKU demand forecasting to order stocks and automate reorder emails, customer churn prediction to target at-risk spenders with personalized email offers, and automated expiry tracking with smart stock optimization suggestions built across 797K+ transactions."
   },
   {
     title: "Autonomous Data Science Platform — AI chatbot integrated",

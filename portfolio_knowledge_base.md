@@ -123,7 +123,40 @@ educational videos quickly.
 
 ------------------------------------------------------------------------
 
-## 2. AI Chatbot Integrated Retail Intelligence & Prediction Platform
+## 2. AI Voice Detector — Deepfake Speech & Audio Forensics Platform (VoiceGuard AI)
+
+**Technologies/areas:** PyTorch, 2D CNN Spectrogram Analysis, Torchaudio, Java 21 Spring Boot 3, Next.js 16, FastAPI, PostgreSQL, Docker, Microservices, Audio Forensics.
+
+Akarshan built an end-to-end anti-spoofing and deepfake audio forensics platform that detects whether a speech recording is authentic human voice or an AI-synthesized deepfake clone.
+
+### Main capabilities
+
+-   **Live Voice & File Analysis:** Allows users to upload audio files (WAV, MP3, FLAC, OGG, WebM) or record real-time audio directly via microphone with dynamic Web Audio API frequency visualizers.
+-   **Deep Acoustic Spectrogram Processing:** Converts 16 kHz mono audio into 80-band Log-Mel spectrograms for high-resolution frequency feature extraction.
+-   **Fast Real-Time Inference:** Delivers sub-100ms classification turnaround on standard CPU.
+-   **Forensic PDF Audit Reports:** Automatically generates downloadable, audit-ready forensic PDF certificates using OpenPDF, complete with confidence scores and acoustic metadata.
+-   **Interactive Verification Presets:** Pre-loaded with authentic human recordings and synthetic AI deepfakes for testing.
+
+### Machine Learning & Benchmark Metrics
+
+-   **Model:** 4-stage 2D Convolutional Neural Network (CNN) with Log-Mel Spectrogram representations (~421K parameters).
+-   **Dataset:** 10,000 speech samples from the ASVspoof 2021 Deepfake Benchmark (5,000 genuine, 5,000 synthetic).
+-   **Speaker-Disjoint Protocol:** Strict 0.00% speaker overlap between training (54 speakers), validation (17 speakers), and test sets (22 speakers / 1,500 unseen samples) to eliminate identity memorization.
+-   **Test Accuracy:** 76.40% on unseen, speaker-disjoint test set.
+-   **ROC-AUC:** 85.67%.
+-   **Equal Error Rate (EER):** 22.87%.
+-   **Lossy Codec Invariance:** > 72% across AAC, MP3, OGG, and WebM encodings.
+
+### Enterprise Architecture
+
+-   **Backend API Gateway:** Java 21 with Spring Boot 3, stateless JWT security, PostgreSQL database, and OpenPDF report compilation.
+-   **ML Microservice:** Python FastAPI application running PyTorch 2D CNN inference.
+-   **Frontend Dashboard:** Next.js 16 (React 19 + TypeScript) with modern glassmorphism.
+-   **Deployment:** Multi-container orchestration with Docker Compose.
+
+------------------------------------------------------------------------
+
+## 3. AI Chatbot Integrated Retail Intelligence & Prediction Platform
 
 Akarshan built an end-to-end customer intelligence and pricing platform
 using a large retail dataset.
@@ -165,39 +198,6 @@ The platform includes PSI/KS drift monitoring to identify changes in
 data and model behaviour.
 
 The complete platform was deployed on AWS using Docker.
-
-------------------------------------------------------------------------
-
-## 3. AI Voice Detector — Deepfake Speech & Audio Forensics Platform (VoiceGuard AI)
-
-**Technologies/areas:** PyTorch, 2D CNN Spectrogram Analysis, Torchaudio, Java 21 Spring Boot 3, Next.js 16, FastAPI, PostgreSQL, Docker, Microservices, Audio Forensics.
-
-Akarshan built an end-to-end anti-spoofing and deepfake audio forensics platform that detects whether a speech recording is authentic human voice or an AI-synthesized deepfake clone.
-
-### Main capabilities
-
--   **Live Voice & File Analysis:** Allows users to upload audio files (WAV, MP3, FLAC, OGG, WebM) or record real-time audio directly via microphone with dynamic Web Audio API frequency visualizers.
--   **Deep Acoustic Spectrogram Processing:** Converts 16 kHz mono audio into 80-band Log-Mel spectrograms for high-resolution frequency feature extraction.
--   **Fast Real-Time Inference:** Delivers sub-100ms classification turnaround on standard CPU.
--   **Forensic PDF Audit Reports:** Automatically generates downloadable, audit-ready forensic PDF certificates using OpenPDF, complete with confidence scores and acoustic metadata.
--   **Interactive Verification Presets:** Pre-loaded with authentic human recordings and synthetic AI deepfakes for testing.
-
-### Machine Learning & Benchmark Metrics
-
--   **Model:** 4-stage 2D Convolutional Neural Network (CNN) with Log-Mel Spectrogram representations (~421K parameters).
--   **Dataset:** 10,000 speech samples from the ASVspoof 2021 Deepfake Benchmark (5,000 genuine, 5,000 synthetic).
--   **Speaker-Disjoint Protocol:** Strict 0.00% speaker overlap between training (54 speakers), validation (17 speakers), and test sets (22 speakers / 1,500 unseen samples) to eliminate identity memorization.
--   **Test Accuracy:** 76.40% on unseen, speaker-disjoint test set.
--   **ROC-AUC:** 85.67%.
--   **Equal Error Rate (EER):** 22.87%.
--   **Lossy Codec Invariance:** > 72% across AAC, MP3, OGG, and WebM encodings.
-
-### Enterprise Architecture
-
--   **Backend API Gateway:** Java 21 with Spring Boot 3, stateless JWT security, PostgreSQL database, and OpenPDF report compilation.
--   **ML Microservice:** Python FastAPI application running PyTorch 2D CNN inference.
--   **Frontend Dashboard:** Next.js 16 (React 19 + TypeScript) with modern glassmorphism.
--   **Deployment:** Multi-container orchestration with Docker Compose.
 
 ------------------------------------------------------------------------
 
