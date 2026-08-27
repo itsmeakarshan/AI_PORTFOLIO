@@ -32,18 +32,24 @@ portfolio assistant.
 
 # Technical Skills
 
-## Programming & Data
+## Programming & Software Engineering
 
 -   Python
 -   SQL
+-   Java 21 / Spring Boot 3
+-   Next.js 16 / React 19 / TypeScript
+-   FastAPI
 -   Pandas
 -   NumPy
 -   SciPy
 -   Matplotlib
 -   Seaborn
 
-## Machine Learning & Statistics
+## Machine Learning & Audio DSP
 
+-   PyTorch
+-   Torchaudio
+-   2D CNN Spectrogram Analysis
 -   Scikit-learn
 -   LightGBM
 -   XGBoost
@@ -162,7 +168,40 @@ The complete platform was deployed on AWS using Docker.
 
 ------------------------------------------------------------------------
 
-## 3. Autonomous Data Science Platform --- AI Chatbot Integrated
+## 3. AI Voice Detector — Deepfake Speech & Audio Forensics Platform (VoiceGuard AI)
+
+**Technologies/areas:** PyTorch, 2D CNN Spectrogram Analysis, Torchaudio, Java 21 Spring Boot 3, Next.js 16, FastAPI, PostgreSQL, Docker, Microservices, Audio Forensics.
+
+Akarshan built an end-to-end anti-spoofing and deepfake audio forensics platform that detects whether a speech recording is authentic human voice or an AI-synthesized deepfake clone.
+
+### Main capabilities
+
+-   **Live Voice & File Analysis:** Allows users to upload audio files (WAV, MP3, FLAC, OGG, WebM) or record real-time audio directly via microphone with dynamic Web Audio API frequency visualizers.
+-   **Deep Acoustic Spectrogram Processing:** Converts 16 kHz mono audio into 80-band Log-Mel spectrograms for high-resolution frequency feature extraction.
+-   **Fast Real-Time Inference:** Delivers sub-100ms classification turnaround on standard CPU.
+-   **Forensic PDF Audit Reports:** Automatically generates downloadable, audit-ready forensic PDF certificates using OpenPDF, complete with confidence scores and acoustic metadata.
+-   **Interactive Verification Presets:** Pre-loaded with authentic human recordings and synthetic AI deepfakes for testing.
+
+### Machine Learning & Benchmark Metrics
+
+-   **Model:** 4-stage 2D Convolutional Neural Network (CNN) with Log-Mel Spectrogram representations (~421K parameters).
+-   **Dataset:** 10,000 speech samples from the ASVspoof 2021 Deepfake Benchmark (5,000 genuine, 5,000 synthetic).
+-   **Speaker-Disjoint Protocol:** Strict 0.00% speaker overlap between training (54 speakers), validation (17 speakers), and test sets (22 speakers / 1,500 unseen samples) to eliminate identity memorization.
+-   **Test Accuracy:** 76.40% on unseen, speaker-disjoint test set.
+-   **ROC-AUC:** 85.67%.
+-   **Equal Error Rate (EER):** 22.87%.
+-   **Lossy Codec Invariance:** > 72% across AAC, MP3, OGG, and WebM encodings.
+
+### Enterprise Architecture
+
+-   **Backend API Gateway:** Java 21 with Spring Boot 3, stateless JWT security, PostgreSQL database, and OpenPDF report compilation.
+-   **ML Microservice:** Python FastAPI application running PyTorch 2D CNN inference.
+-   **Frontend Dashboard:** Next.js 16 (React 19 + TypeScript) with modern glassmorphism.
+-   **Deployment:** Multi-container orchestration with Docker Compose.
+
+------------------------------------------------------------------------
+
+## 4. Autonomous Data Science Platform --- AI Chatbot Integrated
 
 Akarshan built an autonomous data science platform that takes raw
 datasets and automates the machine-learning workflow.
@@ -196,7 +235,7 @@ results.
 
 ------------------------------------------------------------------------
 
-## 4. Vendor Invoice & Freight Cost Intelligence
+## 5. Vendor Invoice & Freight Cost Intelligence
 
 Akarshan built an end-to-end invoice intelligence system designed to
 predict vendor freight costs and identify high-risk invoices requiring
@@ -218,7 +257,7 @@ The deployed application enables real-time prediction.
 
 ------------------------------------------------------------------------
 
-## 5. NLP Emotion Detection
+## 6. NLP Emotion Detection
 
 Akarshan built a real-time emotion detection system that classifies the
 emotional state expressed in user-provided text using NLP and machine
@@ -289,6 +328,8 @@ Highlight:
 -   RAG and LLM applications
 -   Forecasting
 -   Customer intelligence
+-   Audio Forensics & Deepfake Detection
+-   Software Engineering & Full-Stack Systems (Java Spring Boot, Next.js, FastAPI)
 -   Data quality and model monitoring
 -   End-to-end application development
 -   AWS and Docker
@@ -301,6 +342,7 @@ Examples:
 
 -   AI/video questions → Video Intelligence Platform
 -   Retail/business/forecasting → Retail Intelligence Platform
+-   Voice/audio/deepfake/forensics/security questions → AI Voice Detector (VoiceGuard AI)
 -   Automated ML → Autonomous Data Science Platform
 -   Invoice/fraud/risk → Vendor Invoice & Freight Cost Intelligence
 -   NLP/emotion → NLP Emotion Detection
@@ -315,6 +357,7 @@ Known figures:
 -   Video learner prediction: R² 0.861, MAE 3.13%
 -   Retail churn prediction: ROC-AUC 0.831
 -   Retail demand forecasting: sMAPE 31.84%
+-   Voice Deepfake Detection: Test Accuracy 76.40%, ROC-AUC 85.67%, EER 22.87% (ASVspoof 2021 Benchmark, speaker-disjoint protocol)
 
 ## If asked about education
 

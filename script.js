@@ -21,6 +21,12 @@ const projects = [
     description: "Retail intelligence platform giving retailers full control over customers and products. Features SKU demand forecasting to order stocks and automate reorder emails, customer churn prediction to target at-risk spenders with personalized email offers, and automated expiry tracking with smart stock optimization suggestions built across 797K+ transactions."
   },
   {
+    title: "AI Voice Detector — Deepfake Speech & Audio Forensics Platform",
+    yt: "nPmcr5GBy84",
+    live: "https://github.com/itsmeakarshan/AI-VOICE-DETECTOR",
+    description: "An audio security and forensics platform that instantly detects whether a voice recording is a real human or an AI-generated deepfake clone. Users can upload audio files or record voice live to get accurate authenticity scores, acoustic spectrogram visualizations, and downloadable forensic audit reports."
+  },
+  {
     title: "Autonomous Data Science Platform — AI chatbot integrated",
     yt: "bzzT175ze74",
     live: "https://github.com/itsmeakarshan/ai-data-scientist",
@@ -81,7 +87,7 @@ if (projectGrid) {
           <h3 class="project-title">${project.title}</h3>
           <p class="project-desc">${project.description}</p>
           <div class="project-links">
-            <a href="${project.live}" target="_blank" rel="noopener">Live Site ↗</a>
+            <a href="${project.live}" target="_blank" rel="noopener">${project.live && project.live.includes("github.com") ? "GitHub ↗" : "Live Site ↗"}</a>
             <a href="https://youtu.be/${project.yt}" target="_blank" rel="noopener">YouTube ↗</a>
           </div>
         </div>
