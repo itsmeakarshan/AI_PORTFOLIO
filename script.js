@@ -21,16 +21,21 @@ const projects = [
     description: "An audio security and forensics platform that instantly detects whether a voice recording is a real human or an AI-generated deepfake clone. Users can upload audio files or record voice live to get accurate authenticity scores, acoustic spectrogram visualizations, and downloadable forensic audit reports."
   },
   {
-    title: "AI Chatbot Integrated Retail Intelligence & Prediction Platform",
-    yt: "R5F8nOMUvm8",
-    live: "https://retail.akarshan.co.uk",
-    description: "Retail intelligence platform giving retailers full control over customers and products. Features SKU demand forecasting to order stocks and automate reorder emails, customer churn prediction to target at-risk spenders with personalized email offers, and automated expiry tracking with smart stock optimization suggestions built across 797K+ transactions."
+    title: "Retail Customer Intelligence & Demand Forecasting Platform",
+    yt: "yFDt3oTBeq8",
+    live: "https://retail-customer-intelligence-platform-akarshan.streamlit.app/",
+    description: "An enterprise-grade, pure Streamlit Machine Learning & Econometric Intelligence Platform built on the Dunnhumby 2.59-Million Transaction Dataset. The platform delivers real-time customer lifetime value modeling, calibrated churn risk classification, 12-week supply chain demand forecasting, and constant-elasticity price sensitivity simulations—executed 100% locally with zero external API dependencies."
   },
   {
     title: "Autonomous Data Science Platform — AI chatbot integrated",
     yt: "bzzT175ze74",
     live: "https://github.com/itsmeakarshan/ai-data-scientist",
     description: "An AI-powered data science platform that lets users upload raw datasets and automatically cleans data, finds hidden patterns, builds the best machine-learning models, and explains exact reasons behind predictions without writing code."
+  },
+  {
+    title: "Modern Enterprise SQL Data Warehouse & Power BI Analytics",
+    github: "https://github.com/itsmeakarshan/sql_data_warehouse_project",
+    description: "An end-to-end enterprise data warehousing and business intelligence solution built with Microsoft SQL Server and Power BI Desktop following the Medallion Architecture (Bronze, Silver, Gold layers). Ingests raw CRM and ERP data, standardizes it via T-SQL stored procedures, structures it into a dimensional Star Schema, and delivers interactive executive KPI dashboards."
   },
   {
     title: "Vendor Invoice & Freight Cost Intelligence",
@@ -87,7 +92,8 @@ if (projectGrid) {
           <h3 class="project-title">${project.title}</h3>
           <p class="project-desc">${project.description}</p>
           <div class="project-links">
-            <a href="${project.live}" target="_blank" rel="noopener">${project.live && project.live.includes("github.com") ? "GitHub ↗" : "Live Site ↗"}</a>
+            ${project.live ? `<a href="${project.live}" target="_blank" rel="noopener">${project.live.includes("github.com") ? "GitHub ↗" : "Live Site ↗"}</a>` : ""}
+            ${project.github ? `<a href="${project.github}" target="_blank" rel="noopener">GitHub ↗</a>` : ""}
             <a href="https://youtu.be/${project.yt}" target="_blank" rel="noopener">YouTube ↗</a>
           </div>
         </div>
@@ -121,11 +127,25 @@ if (projectGrid) {
         }
       });
     } else {
+      let linkHtml = "";
+      if (project.github) {
+        linkHtml = `
+          <div class="project-links">
+            <a href="${project.github}" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>`;
+      } else if (project.live) {
+        linkHtml = `
+          <div class="project-links">
+            <a href="${project.live}" target="_blank" rel="noopener">${project.live.includes("github.com") ? "GitHub ↗" : "Live Site ↗"}</a>
+          </div>`;
+      }
+
       card.innerHTML = `
         <div class="project-info project-info-full">
           <span class="project-index">${padIndex} / PROJECT</span>
           <h3 class="project-title">${project.title}</h3>
           <p class="project-desc">${project.description}</p>
+          ${linkHtml}
         </div>
       `;
     }

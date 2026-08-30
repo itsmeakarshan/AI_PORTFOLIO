@@ -156,48 +156,22 @@ Akarshan built an end-to-end anti-spoofing and deepfake audio forensics platform
 
 ------------------------------------------------------------------------
 
-## 3. AI Chatbot Integrated Retail Intelligence & Prediction Platform
+## 3. Retail Customer Intelligence & Demand Forecasting Platform
 
-Akarshan built an end-to-end customer intelligence and pricing platform
-using a large retail dataset.
+**Technologies/areas:** Streamlit, Python, Scikit-learn, XGBoost, Lifetimes (BG/NBD & Gamma-Gamma), Statsmodels, Time-Series Econometrics.
 
-### Dataset
+An enterprise-grade, pure Streamlit Machine Learning & Econometric Intelligence Platform built on the Dunnhumby 2.59-Million Transaction Dataset (2,500 households over two years). The platform delivers real-time customer lifetime value modeling, calibrated churn risk classification, 12-week supply chain demand forecasting, and constant-elasticity price sensitivity simulations—executed 100% locally with zero external API dependencies.
 
--   797K+ retail transactions
--   5,939 customers
--   4,646 products
+### Main capabilities
 
-### Machine Learning & Analytics
-
-The platform includes:
-
--   Customer churn prediction
--   Customer revenue forecasting
--   RFM segmentation
--   90-day SKU demand forecasting
--   Price elasticity analysis
--   Inventory optimisation
-
-### Model performance
-
--   Churn prediction ROC-AUC: 0.831
--   90-day demand forecasting sMAPE: 31.84%
-
-### Business capabilities
-
-The platform gives retailers full control over customers and products:
-
--   **High-Demand Stock Forecasting & Supplier Ordering:** Identifies products about to experience high demand, calculates exact reorder points, and sends automated stock order emails to suppliers.
--   **Customer Churn & Personalized Email Offers:** Identifies customers at risk of churn or reduced spending and automatically sends personalized email offers to retain them.
--   **Expiry Tracking & Smart Inventory Suggestions:** Continuously tracks expiring stock and provides actionable inventory optimization suggestions to minimize waste.
--   **Targeted Promotions & Pricing:** Supports RFM customer segmentation, price elasticity analysis, safety-stock calculations, and suggested-order recommendations.
-
-### Monitoring & Deployment
-
-The platform includes PSI/KS drift monitoring to identify changes in
-data and model behaviour.
-
-The complete platform was deployed on AWS using Docker.
+-   **Customer Lifetime Value (CLV) Modeling:** Real-time customer lifetime value modeling using BG/NBD transaction rate estimation and Gamma-Gamma monetary value modeling.
+-   **Calibrated Churn Risk Classification:** Probabilistic customer churn classification with probability calibration and threshold optimization.
+-   **12-Week Supply Chain Demand Forecasting:** Multi-step econometric and machine-learning demand forecasting for supply chain planning.
+-   **Constant-Elasticity Price Sensitivity Simulations:** Econometric log-log demand models simulating revenue and profit impact under varying pricing scenarios.
+-   **100% Local Execution:** Runs completely locally with zero external API dependencies.
+-   **Deployment:** Pure Streamlit web application.
+-   **Live Link:** https://retail-customer-intelligence-platform-akarshan.streamlit.app/
+-   **Video Demo:** https://www.youtube.com/watch?v=yFDt3oTBeq8
 
 ------------------------------------------------------------------------
 
@@ -235,7 +209,26 @@ results.
 
 ------------------------------------------------------------------------
 
-## 5. Vendor Invoice & Freight Cost Intelligence
+## 5. Modern Enterprise SQL Data Warehouse & Power BI Analytics
+
+**Technologies/areas:** Microsoft SQL Server (2019+), T-SQL, Microsoft Power BI Desktop, SSMS, Medallion Architecture (Bronze, Silver, Gold), Dimensional Modeling (Star Schema), DAX.
+
+Akarshan built an end-to-end Enterprise Data Warehousing & Business Intelligence solution with Microsoft SQL Server and Power BI Desktop following the Medallion Architecture.
+
+### Architecture & Pipeline (Medallion Architecture)
+
+1.  **Bronze Layer (Raw Ingestion):** Direct landing zone ingesting raw CRM and ERP CSV extracts using automated stored procedures (`proc_load_bronze`) with `BULK INSERT`, automated truncation, execution runtime tracking, and `TRY...CATCH` error handling.
+2.  **Silver Layer (Cleanse & Standardize):** Cleanses, deduplicates, and standardizes data using T-SQL stored procedures (`proc_load_silver`), applying CTEs, window functions (`ROW_NUMBER() OVER (PARTITION BY cst_id ORDER BY cst_create_date DESC)`), string trimming, and data hygiene rules.
+3.  **Gold Layer (Dimensional Modeling / Star Schema):** Structures business-ready facts and dimensions with surrogate keys (`gold.dim_customers`, `gold.dim_products`, `gold.fact_sales`).
+4.  **Power BI Desktop Analytics:** Connects directly to the Gold layer to deliver interactive executive KPI dashboards, sales trend analysis, DAX measures, and customer demographic insights.
+
+### Repository
+
+-   **GitHub:** https://github.com/itsmeakarshan/sql_data_warehouse_project
+
+------------------------------------------------------------------------
+
+## 6. Vendor Invoice & Freight Cost Intelligence
 
 Akarshan built an end-to-end invoice intelligence system designed to
 predict vendor freight costs and identify high-risk invoices requiring
@@ -257,7 +250,7 @@ The deployed application enables real-time prediction.
 
 ------------------------------------------------------------------------
 
-## 6. NLP Emotion Detection
+## 7. NLP Emotion Detection
 
 Akarshan built a real-time emotion detection system that classifies the
 emotional state expressed in user-provided text using NLP and machine
@@ -315,7 +308,7 @@ this document.
 Explain that Akarshan Rasyal is an MSc Data Science graduate based in
 Newcastle upon Tyne, specialising in Python, SQL, machine learning and
 AI. Mention that he builds end-to-end data and AI solutions across
-customer intelligence, forecasting, NLP, computer vision and AI-powered
+customer intelligence, forecasting, NLP, computer vision, data warehousing and AI-powered
 applications.
 
 ## If asked about his strongest technical areas
@@ -323,12 +316,12 @@ applications.
 Highlight:
 
 -   Python and SQL
--   Machine learning
+-   Machine learning & Time-Series Forecasting
 -   AI and NLP
 -   RAG and LLM applications
--   Forecasting
--   Customer intelligence
+-   Customer intelligence & CLV / Churn Modeling
 -   Audio Forensics & Deepfake Detection
+-   Data Warehousing & BI (SQL Server, Medallion Architecture, Power BI)
 -   Software Engineering & Full-Stack Systems (Java Spring Boot, Next.js, FastAPI)
 -   Data quality and model monitoring
 -   End-to-end application development
@@ -341,9 +334,10 @@ Give the most relevant project based on the visitor's question.
 Examples:
 
 -   AI/video questions → Video Intelligence Platform
--   Retail/business/forecasting → Retail Intelligence Platform
 -   Voice/audio/deepfake/forensics/security questions → AI Voice Detector (VoiceGuard AI)
+-   Retail/business/forecasting/pricing/CLV/churn → Retail Customer Intelligence & Demand Forecasting Platform
 -   Automated ML → Autonomous Data Science Platform
+-   Data warehousing/SQL/Power BI/ETL → Modern Enterprise SQL Data Warehouse & Power BI Analytics
 -   Invoice/fraud/risk → Vendor Invoice & Freight Cost Intelligence
 -   NLP/emotion → NLP Emotion Detection
 
@@ -355,8 +349,6 @@ metrics.
 Known figures:
 
 -   Video learner prediction: R² 0.861, MAE 3.13%
--   Retail churn prediction: ROC-AUC 0.831
--   Retail demand forecasting: sMAPE 31.84%
 -   Voice Deepfake Detection: Test Accuracy 76.40%, ROC-AUC 85.67%, EER 22.87% (ASVspoof 2021 Benchmark, speaker-disjoint protocol)
 
 ## If asked about education
