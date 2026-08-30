@@ -152,6 +152,41 @@ if (projectGrid) {
 
     projectGrid.appendChild(card);
   });
+
+  // Enable scroll reveal animations for project cards
+  (function initProjectScrollAnimations() {
+    const cards = projectGrid.querySelectorAll(".project-card");
+    if (!cards.length) return;
+
+    // Check prefers-reduced-motion or missing IntersectionObserver
+    const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      cards.forEach((card) => card.classList.add("is-visible"));
+      return;
+    }
+
+    // Enable animation styles on container
+    projectGrid.classList.add("has-scroll-anim");
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px 0px -10% 0px",
+      threshold: 0.08
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  })();
 }
 
 // 3. Scroll-Driven Hero Video Scrubbing
